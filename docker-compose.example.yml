@@ -1,0 +1,18 @@
+# docker-compose.yml
+services:
+  db:
+    image: postgres:latest # Or a specific version like postgres:16.3
+    container_name: git-launcher-postgres-db
+    environment:
+      POSTGRES_DB: your_database_name # The name of your database
+      POSTGRES_USER: your_username # Your username
+      POSTGRES_PASSWORD: your_password # Your password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" # Host_Port:Container_Port - Map port 5432 on your host to 5432 in the container
+    restart: unless-stopped
+
+volumes:
+  db-data:
