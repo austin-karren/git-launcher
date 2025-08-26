@@ -1,6 +1,20 @@
 {
 	"$schema": "https://turbo.build/schema.json",
 	"ui": "tui",
+	"globalEnv": [
+		"DATABASE_URL",
+		"CORS_ORIGIN",
+		"BETTER_AUTH_SECRET",
+		"BETTER_AUTH_URL"
+	],
+	"globalPassThroughEnv": [
+		"VITE_SERVER_URL",
+		"CI",
+		"VERCEL",
+		"VERCEL_ENV",
+		"VERCEL_URL",
+		"npm_lifecycle_event"
+	],
 	"tasks": {
 		"build": {
 			"dependsOn": ["^build"],
